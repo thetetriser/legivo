@@ -1,0 +1,40 @@
+html {
+  font-family: "Lato", "Courier New", monospace;
+  padding-left: auto;
+  margin: auto;
+}
+
+#title {
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.questions-container {
+  background-color: bisque;
+  border-width: 1px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding-left: auto;
+  padding-right: auto;
+  align-content: center;
+  align-items: center;
+}
+
+.clickable-word {
+  color: blue;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#text-content {
+  max-width: 1000px;;
+}
+
+.hidden{
+  display: none
+}
+

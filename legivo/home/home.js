@@ -27,17 +27,23 @@ async function fetchData() {
   const container = document.getElementById("documentsContainer");
   container.innerHTML = ''; // Clear the container
 
-  querySnapshot.forEach((doc) => {
+  const sortedDocs = querySnapshot.docs.sort((a, b) => b.data().no - a.data().no);
+
+  sortedDocs.forEach((doc) => {
     const data = doc.data();
     const docDiv = document.createElement("div");
     docDiv.classList.add("document");
 
     docDiv.innerHTML = `
       <h3>${data.title}</h3>
-      <p>${data.content}</p>
+      <p id="text-content">${data.content}</p>
       <button class="read-button" id="${data.no}">Read text</button>
     `;
-
+const maxWords = 150; // Maximum number of words to display
+const textContent = docDiv.querySelector("#text-content");
+if(textContent.textContent.length > maxWords){
+    textContent.textContent = textContent.textContent.substring(0, maxWords) + '...';
+}
     // Add event listener to "Read Text" button
     const readButton = docDiv.querySelector(".read-button");
     readButton.addEventListener("click", () => {

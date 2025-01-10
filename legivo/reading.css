@@ -1,0 +1,145 @@
+/* reading.css */
+
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #f9f9f9;
+  background-color: #333;
+}
+
+/* Text Title Styles */
+
+#text-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Text Content Styles */
+
+#text-content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #333;
+  border: 1px solid #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Questions Container Styles */
+
+#questions-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #333;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Back Button Styles */
+
+#back-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+
+}
+
+#back-button:hover {
+  background-color: #3e8e41;
+}
+
+/* Words in Text Styles */
+
+#words-in-text {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #333;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+}
+
+#words-in-text li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#words-in-text li:last-child {
+  border-bottom: none;
+}
+
+/* Words in Text Container Styles */
+
+#words-in-text-container {
+  min-width: 300px;
+  max-width: 800px;
+  margin: 40px 40px 40px 40px;
+  padding: 20px;
+  background-color: #333;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.clickable-word {
+  border: none;
+  background: none;
+  color: inherit; /* Keeps the color of the text the same as the surrounding text */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: background-color 0.2s ease; /* Smooth transition for highlighting */
+}
+
+.highlighted {
+  background-color: #f0e68c; /* Light yellow background to highlight */
+}
+
+.clickable-word:hover {
+  text-decoration: underline; /* Underline on hover (optional) */
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+#main-container {
+  display: flex;
+  justify-content:center;
+  
+}
+
+#words-in-text-container {
+  margin-top: 82px;
+  float: left;
+}
+
+#text-container {
+  float: left;
+}

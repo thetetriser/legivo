@@ -1,145 +1,147 @@
-/* reading.css */
-
-/* Global Styles */
-
+/* General Reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
-  padding-top: 20px;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #f9f9f9;
-  background-color: #333;
 }
 
-/* Text Title Styles */
+/* Body Styling */
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+#all-content {
+  max-width: 1600px;;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
+
+#text-and-questions {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* Title Styling */
 #text-title {
-  font-size: 36px;
+  font-size: 2rem;
   font-weight: bold;
-  text-align: center;
   margin-bottom: 20px;
-  line-height: 1.2;
+  text-align: center;
+  color: #4a90e2;
 }
 
-/* Text Content Styles */
-
+/* Text Content Styling */
 #text-content {
-  max-width: 800px;
-  margin: 40px auto;
+  background: #ffffff;
   padding: 20px;
-  background-color: #333;
-  border: 1px solid #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  line-height: 1.8;
+  max-width: 800px;
 }
 
-/* Questions Container Styles */
+/* Highlighted Words */
+.clickable-word {
+  all: unset; /* Reset button styles completely */
+  color: inherit; /* Inherit the text color from the parent */
+  cursor: pointer; /* Show a pointer to indicate clickability */
+}
 
+.clickable-word:hover {
+  color: blue; /* Optional: Change color on hover for better user feedback */
+  text-decoration: underline; /* Ensure underline is visible on hover */
+}
+
+.clickable-word.highlighted {
+  background-color: #dff0ff;
+  color: #007acc;
+}
+
+/* Questions Container Styling */
 #questions-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #333;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #eef2f7;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    max-width: 98%;
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Modern alternative */
+    box-sizing: border-box;
+  
 }
 
-/* Back Button Styles */
-
+/* Back Button Styling */
 #back-button {
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
+  display: inline-block;
   padding: 10px 20px;
-  font-size: 16px;
+  background-color: #4a90e2;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #back-button:hover {
-  background-color: #3e8e41;
+  background-color: #357ab7;
+  transform: translateY(-2px);
 }
 
-/* Words in Text Styles */
+#back-button:active {
+  transform: translateY(0);
+}
 
+/* Words in Text Container */
 #words-in-text {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #333;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-self: start;
+  min-height: 20px;
+  overflow: auto;
+  transition: height 0.5s;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#words-in-text ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
 }
 
 #words-in-text li {
   margin-bottom: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
 }
 
-#words-in-text li:last-child {
-  border-bottom: none;
+#words-in-text strong {
+  color: #4a90e2;
 }
 
-/* Words in Text Container Styles */
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
 
-#words-in-text-container {
-  min-width: 300px;
-  max-width: 800px;
-  margin: 40px 40px 40px 40px;
-  padding: 20px;
-  background-color: #333;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  #text-title {
+    font-size: 1.5rem;
+  }
 
-.clickable-word {
-  border: none;
-  background: none;
-  color: inherit; /* Keeps the color of the text the same as the surrounding text */
-  cursor: pointer; /* Changes the cursor to a pointer on hover */
-  transition: background-color 0.2s ease; /* Smooth transition for highlighting */
-}
-
-.highlighted {
-  background-color: #f0e68c; /* Light yellow background to highlight */
-}
-
-.clickable-word:hover {
-  text-decoration: underline; /* Underline on hover (optional) */
-}
-
-
-
-.hidden {
-  display: none;
-}
-
-#main-container {
-  display: flex;
-  justify-content:center;
-  
-}
-
-#words-in-text-container {
-  margin-top: 82px;
-  float: left;
-}
-
-#text-container {
-  float: left;
+  #back-button {
+    width: 100%;
+    text-align: center;
+  }
 }

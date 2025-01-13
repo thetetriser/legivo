@@ -54,6 +54,7 @@ body {
 /* Highlighted Words */
 .clickable-word {
   all: unset; /* Reset button styles completely */
+  color: orange;
   color: inherit; /* Inherit the text color from the parent */
   cursor: pointer; /* Show a pointer to indicate clickability */
 }

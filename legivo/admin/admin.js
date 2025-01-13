@@ -59,53 +59,67 @@ textForm.addEventListener("submit", async (event) => {
 });
 
 // Add Question Function
-const questionForm = document.getElementById("question-form");
-questionForm.addEventListener("submit", async (event) => {
+// Add Multiple-Choice Question
+const mcForm = document.getElementById("mc-question-form");
+mcForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const textId = document.getElementById("text-id-question").value.trim();
-  const questionText = document.getElementById("question-text").value.trim();
+  const textId = document.getElementById("text-id-mc").value.trim();
+  const questionText = document.getElementById("mc-question-text").value.trim();
 
-  if (textId === "") {
-    alert("Please select a text.");
+  if (textId === "" || questionText === "") {
+    alert("Text ID and question are required.");
     return;
   }
 
-  if (questionText === "") {
-    alert("Please enter a question.");
-    return;
-  }
-
-  const options = Array.from(document.querySelectorAll(".option")).map((input) => ({
-    value: input.value.trim(),
-    answer: false,
+  const options = Array.from(document.querySelectorAll(".mc-option")).map((input) => ({
+    text: input.value.trim(),
+    isCorrect: false,
   }));
 
-  if (options.length === 0) {
-    alert("Please add at least one option.");
-    return;
-  }
-
-  const correctOption = parseInt(document.getElementById("correct-option").value);
-
-  if (correctOption < 0 || correctOption >= options.length) {
-    alert("Please select a valid correct option.");
-    return;
-  }
-
-  options[correctOption].answer = true;
+  const correctOptionIndex = parseInt(document.getElementById("mc-correct-option").value);
+  options[correctOptionIndex].isCorrect = true;
 
   try {
     await updateDoc(doc(db, "texts", textId), {
-      questions: arrayUnion({
+      "questions.multipleChoice": arrayUnion({
         question: questionText,
         options: options,
       }),
     });
-    alert("Question added successfully!");
-    questionForm.reset();
+    alert("Multiple-choice question added successfully!");
+    mcForm.reset();
   } catch (error) {
-    console.error("Error adding question:", error);
-    alert("Failed to add the question. Please try again later.");
+    console.error("Error adding multiple-choice question:", error);
+    alert("Failed to add the question. Try again later.");
+  }
+});
+
+// Add True/False Question
+const tfForm = document.getElementById("tf-question-form");
+tfForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const textId = document.getElementById("text-id-tf").value.trim();
+  const statementText = document.getElementById("tf-statement-text").value.trim();
+  const isTrue = document.getElementById("tf-is-true").value === "true";
+
+  if (textId === "" || statementText === "") {
+    alert("Text ID and statement are required.");
+    return;
+  }
+
+  try {
+    await updateDoc(doc(db, "texts", textId), {
+      "questions.trueFalse": arrayUnion({
+        statement: statementText,
+        isTrue: isTrue,
+      }),
+    });
+    alert("True/False question added successfully!");
+    tfForm.reset();
+  } catch (error) {
+    console.error("Error adding true/false question:", error);
+    alert("Failed to add the statement. Try again later.");
   }
 });

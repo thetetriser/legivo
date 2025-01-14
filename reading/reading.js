@@ -191,9 +191,15 @@ function setupWordInteractions(wordDataMap) {
       document.getElementById("words-in-text").appendChild(listItem);
       listedWords.add(word);
       highlightedWords.remove(word);
+      console.log(listedWords);
     });
   });
 }
+document.getElementById("start-vocab-test-button").addEventListener("click", () => {
+  const listedWordsArray = Array.from(listedWords); // Convert Set to Array
+  localStorage.setItem("selectedWords", JSON.stringify(listedWordsArray)); // Store in localStorage
+  window.location.href = "/voctest/voctest.html";
+});
 
 
 // Function to check the answers
@@ -254,3 +260,4 @@ function checkAnswers(questions) {
 }
 
 window.onload = loadText;
+

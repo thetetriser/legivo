@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reading Page</title>
-    <link rel="stylesheet" href="reading.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading</title>
+  <link rel="stylesheet" href="reading.css">
 </head>
 <body>
-    <a href="../index.html" style="color:azure; text-decoration: none; font-size: 20px; font-weight: bold; margin-left: 20px; margin-top: 20px; " >Homepage</a>
-    <h1 id="text-title">Title goes here</h1>
-    <div id="all-content">
-        <div id="text-and-questions">
-            <div id="text-content">Content goes here</div>
-            <div id="questions-container">
-                <div id="questions-container">
-                    <div id="questions-container">
-                        <h2>Questions</h2>
-                        <div id="mc-questions">
-                          <h3>Multiple-Choice Questions</h3>
-                          <!-- MC questions will be dynamically added here -->
-                        </div>
-                        <div id="tf-questions">
-                          <h3>True/False Questions</h3>
-                          <!-- True/False questions will be dynamically added here -->
-                        </div>
-                        <button id="check-answers-button">Check Answers</button>
-                        <div id="results"></div>
-                      </div>
-                      
-                  </div>
-                  
-            </div>
+  <section id="navigation">
+    <div id="nav-content">
+        <img class="logo nav" src="https://static.vecteezy.com/system/resources/thumbnails/022/664/807/small_2x/cat-face-silhouettes-cat-face-svg-black-and-white-cat-vector.jpg" alt="Logo">
+        <div id="menu">
+            <a  class="nav" href="index.html">Home</a>
+            <a  class="nav" href="search/search.html">Texts</a>
+            <a  class="nav" href="contact.html">Contact</a>
         </div>
-        <div id="words-in-text">
-            <button id="start-vocab-test-button">Start vocabulary test</button>
-
-        </div>
-    </div>
     
-   
-   <button id="back-button" onclick="history.back()">Back</button>
+    </section>
 
-   
+    <section id="reading">
+      <div id="reading-content">
+        <div id="reading-text">
+          <h1>Reading</h1>
+          <p>Discover a world of engaging texts, build your vocabulary, and achieve your language goals—all in one place.</p>
+        </div>
+        <div id="reading-questions">
+          <h2>Questions</h2>  
+          <div id="mc-questions">
+            <h3>Multiple-Choice Questions</h3>
+            <!-- MC questions will be dynamically added here -->
+          </div>
+          <div id="tf-questions">
+            <h3>True/False Questions</h3>
+            <!-- True/False questions will be dynamically added here -->
+          </div>
+          <button id="check-answers-button">Check Answers</button>
+      </div>
 
-    <script type="module" src="reading.js"></script>
+      <div id="words-to-test">
+        <button id="start-vocab-test-button">Start vocabulary test</button>
+      </div>
+      
+    </section>  
+
+
+
+
+  <div id="footer">
+    <div id="footer-content">
+        <div id="footer-logo">
+            <img class="logo"src="https://static.vecteezy.com/system/resources/thumbnails/022/664/807/small_2x/cat-face-silhouettes-cat-face-svg-black-and-white-cat-vector.jpg" alt="Logo">
+        </div>
+        <div id="footer-menu">
+            <a class="footer" href="index.html">Home</a>
+            <a class="footer" href="texts.html">Texts</a>
+            <a class="footer" href="contact.html">Contact</a>
+        </div>
+</div>
+  <scriot type="module" src="reading.js"></script>
 </body>
 </html>

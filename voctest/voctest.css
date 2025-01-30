@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: block;  /* Change from 'flex' to 'block' to stack the sections vertically */
+}
+
+.words-container, .synonyms-container {
+  width: 100%; /* Ensure full width for each container */
+  margin-bottom: 20px; /* Space between sections */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.synonym {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.blank {
+  display: inline-block;
+  width: 300px;
+  height: 30px;
+  border: 1px dashed #ccc;
+  text-align: center;
+  line-height: 30px;
+}
+
+.blank.drag-over {
+  background-color: #d3ffd3;
+  width: 150px;
+}
+
+.synonym.dragging {
+  opacity: 0.5;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.draggable {
+  background-color: orange;
+}
+
+li .synonym .draggable {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+ 
+ 
+}
+
+#partA-words {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#partB-words {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+p {
+  display: inline-block;
+}

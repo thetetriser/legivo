@@ -3,69 +3,72 @@ import { getFirestore, collection, addDoc } from "https://www.gstatic.com/fireba
 
 // Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDxWpU8TWBDdiDP7zZxKW2ovS1OBYddixA",
-    authDomain: "legivo-1.firebaseapp.com",
-    projectId: "legivo-1",
-    storageBucket: "legivo-1.firebaseapp.com",
-    messagingSenderId: "733952528595",
-    appId: "1:733952528595:web:99bd0efdd4874d3ea50426"
+  apiKey: "AIzaSyDxWpU8TWBDdiDP7zZxKW2ovS1OBYddixA",
+  authDomain: "legivo-1.firebaseapp.com",
+  projectId: "legivo-1",
+  storageBucket: "legivo-1.firebasestorage.app",
+  messagingSenderId: "733952528595",
+  appId: "1:733952528595:web:99bd0efdd4874d3ea50426",
+  measurementId: "G-X5NH69G6DS"
 };
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Handle form submission
-document.getElementById("add-word-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-  
-    const wordsInput = document.getElementById("words-input").value;
-    const wordsArray = wordsInput
-      .split("\n")
-      .map((line) => line.trim())
-      .filter((line) => line);
-  
-    const wordsData = wordsArray.map((line) => {
-      const [name, definition, tos, questionsRaw] = line.split(" | ").map((part) => part.trim());
-  
-      if (!name || !definition || !tos || !questionsRaw) {
-        throw new Error(`Invalid input format in: ${line}`);
-      }
-  
-      // Process the questions
-      const questions = [];
-      const questionPairs = questionsRaw.replace(">", "").split("&");
-      
-      questionPairs.forEach((pair) => {
-        const parts = pair.split(":").map((part) => part.trim());
-        
-        // Validate if both question and answer are present
-        if (parts.length === 2) {
-          const [question, answer] = parts;
-          if (question && answer) {
-            questions.push({ question, answer });
-          } else {
-            throw new Error(`Invalid question/answer pair in: ${pair}`);
-          }
-        } else {
-          // If the pair is not in the correct format, handle it as invalid
-          console.warn(`Skipping invalid question/answer pair: ${pair}`);
-        }
-      });
-  
-      return { name, definition, tos, questions };
-    });
-  
-    try {
-      const wordsCollection = collection(db, "words");
-      for (const wordData of wordsData) {
-        await addDoc(wordsCollection, wordData);
-      }
-      alert("Words added successfully!");
-    } catch (error) {
-      console.error("Error adding words:", error);
-      alert("Failed to add words. Check console for details.");
+// Listen for form submission
+document.getElementById('add-word-form').addEventListener('submit', async (event) => {
+  event.preventDefault(); // Prevent form from reloading the page
+
+  const wordsInput = document.getElementById('words-input').value.trim();
+
+  if (!wordsInput) {
+    alert('Please enter words and their details.');
+    return;
+  }
+
+  // Split input by '>>' and process each word entry
+  const words = wordsInput.split('>>').map((entry) => entry.trim()).filter(Boolean);
+
+  for (const wordEntry of words) {
+    // Split the word entry into parts by ':'
+    const parts = wordEntry.split(':').map((field) => field.trim());
+
+    if (parts.length < 7) {
+      console.error('Incorrect word format:', wordEntry);
+      continue;
     }
-  });
-  
+
+    const [word, baseForm, definition, tos, synonyms, exampleSentence, questionsSection] = parts;
+
+    // Split the questions section by '&' to separate the two fill-in-the-blank questions
+    const questions = questionsSection.split('&').map((q) => q.trim()).filter(Boolean);
+
+    if (questions.length !== 2) {
+      console.error('Incorrect number of questions for word:', word);
+      continue;
+    }
+
+    try {
+      // Add the word entry to Firestore with structured data
+      await addDoc(collection(db, 'words'), {
+        name: word,
+        baseForm: baseForm,
+        definition: definition,
+        tos: tos,
+        synonyms: synonyms,
+        exampleSentence: exampleSentence,
+        questions: questions, // Ensure two questions
+      });
+    } catch (error) {
+      console.error('Error adding word:', error);
+    }
+  }
+
+  alert('Words added successfully!');
+  document.getElementById('words-input').value = ''; // Clear textarea after submission
+});
+
+
+//Sentence completion part beginning
+

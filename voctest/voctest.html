@@ -3,11 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocabulary Test</title>
-  <script type="module" src="voctest.js"></script>
+  <title>Vocabulary Test - Drag and Drop</title>
+  <link rel="stylesheet" href="voctest.css">
 </head>
 <body>
+  <a href="../index.html" style="color:black; text-decoration: none; font-size: 20px; font-weight: bold; margin-left: 20px; margin-top: 20px; " >Homepage</a>
   <h1>Vocabulary Test</h1>
-  <ul id="word-list"></ul>
+  <div class="container">
+    <div id="synonym-section">
+      <h2>Synonym Matching</h2>
+      <div class="synonyms-container">
+        <ul id="synonym-list" class="synonyms"></ul>
+      </div>
+      <div class="words-container">
+        <ul id="word-list" class="words"></ul>
+      </div>
+      <button id="check-synonym-answers">Check</button>
+    </div>
+    <h2>Fill in the Blanks</h2>
+    <div id="fill-in-the-blanks">
+      <p>A. Complete the sentences with the words in the box.</p>
+      <div id="partA">
+        <div id="partA-words">  </div>
+      </div>
+      <button id="check-partA-answers">Check</button>
+      <div id="partB">
+        <p>B. Complete the sentences with the words in the box.</p>
+        <div id="partB-words">  </div>
+      </div>
+      <button id="check-partB-answers">Check</button>
+    </div>
+  </div>
+
+  
+
+  
+
+  <script type="module" src="voctest.js"></script>
 </body>
 </html>

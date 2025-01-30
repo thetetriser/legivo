@@ -1,0 +1,51 @@
+:root {
+  --h1-font-size: 2.875rem;
+  --h2-font-size: 2.4375rem;
+  --h3-font-size: 1.9375rem;
+  --h4-font-size: 1.5625rem;
+  --h5-font-size: 1.25rem;
+  --heading-line-height: 1.2;
+  --p-font-size: 1rem;
+  --p-line-height: 1.5;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  line-height: var(--heading-line-height);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  line-height: var(--heading-line-height);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+  line-height: var(--heading-line-height);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+  line-height: var(--heading-line-height);
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+  line-height: var(--heading-line-height);
+}
+
+p {
+  font-size: var(--p-font-size);
+  line-height: var(--p-line-height);
+}
+
+
+.secondary-button {
+  font-size: var(--p-font-size);
+  line-height: var(--p-line-height);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  background-color: #4a90e2;
+}

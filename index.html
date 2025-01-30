@@ -7,11 +7,79 @@
     <link rel="stylesheet" href="index.css"> <!-- Corrected CSS link -->
 </head>
 <body>
-    <a href="../admin/admin.html" style="color:azure; text-decoration: none; font-size: 20px; font-weight: bold; margin-left: 20px; margin-top: 20px; " >Admin Page</a>
-    <h1>What do you want to read?</h1>
-    <div id="documentsContainer"></div>
+    <section id="navigation">
+        <div id="nav-content">
+            <img class="logo nav" src="https://static.vecteezy.com/system/resources/thumbnails/022/664/807/small_2x/cat-face-silhouettes-cat-face-svg-black-and-white-cat-vector.jpg" alt="Logo">
+            <div id="menu">
+                <a  class="nav" href="index.html">Home</a>
+                <a  class="nav" href="search/search.html">Texts</a>
+                <a  class="nav" href="contact.html">Contact</a>
+            </div>
+        
+        </section>
+    </div>
+    <section id="hero">
+        <div id="hero-content">
+            <div id="hero-text">
+                <h1>Read, Learn, and Grow Your Vocabulary</h1>
+                <p>Discover a world of engaging texts, build your vocabulary, and achieve your language goals—all in one place.</p>
+                <button id="find-texts-button">Find Texts</button>
+            </div>
+            <div id="hero-image">
+                <img src="https://i.ibb.co/6vP0N6y/Group-2.png" alt="Hero Image">
+            </div>
+        </div>
+        <div id="hero-stats">
+            <div id="text-number">
+                <h3 class="stat-text-number"></h3>
+                <p class="stat-detail">Authentic reading texts with more to come</p>
+            </div>
+            <div id="word-number">
+                <h3 class="stat-word-number"></h3>
+                <p class="stat-detail">Words with definitions and practice questions</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Link to your external JS file with the 'type="module"' -->
+
+    <section id="selected-texts" >
+        <h4>We have selected some texts for you</h4>
+        <div class="selected-texts-container">
+            
+          
+        </div>
+    </section>
+    <section id="call-to-action">
+        <div id="call-to-action-content">
+            <div id="call-to-action-text" style="align-items: left;">
+            <h4>Find the text you want to read</h4>
+            <p>Choose from carefully selected 45 texts on various topics.</p>
+            <button id="find-texts-button">Find texts</button>
+        </div>
+        </div>
+        <div id="call-to-action-words">
+            <p class="word"> contract </p>
+            <p class="word"> genius </p>
+            <p class="word"> foretaste </p>
+            <p class="word"> radical</p>
+            <p class="word"> prospect </p>
+            <p class="word"> desire </p>
+        </div>
+
+
+
+    </section>
+    <div id="footer">
+        <div id="footer-content">
+            <div id="footer-logo">
+                <img class="logo"src="https://static.vecteezy.com/system/resources/thumbnails/022/664/807/small_2x/cat-face-silhouettes-cat-face-svg-black-and-white-cat-vector.jpg" alt="Logo">
+            </div>
+            <div id="footer-menu">
+                <a class="footer" href="index.html">Home</a>
+                <a class="footer" href="texts.html">Texts</a>
+                <a class="footer" href="contact.html">Contact</a>
+            </div>
+    </div>
     <script type="module" src="index.js"></script>
 </body>
 </html>

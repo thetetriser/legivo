@@ -18,42 +18,58 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
-// Function to fetch and display data from Firestore
-async function fetchData() {
-  const collectionRef = collection(db, "texts");
-  const querySnapshot = await getDocs(collectionRef);
-
-  const container = document.getElementById("documentsContainer");
-  container.innerHTML = ''; // Clear the container
-
-  const sortedDocs = querySnapshot.docs.sort((a, b) => b.data().no - a.data().no);
-
-  sortedDocs.forEach((doc) => {
-    const data = doc.data();
-    const docDiv = document.createElement("div");
-    docDiv.classList.add("document");
-
-    docDiv.innerHTML = `
-      <h3>${data.title}</h3>
-      <p id="text-content">${data.content}</p>
-      <button class="read-button" id="${data.no}">Read text</button>
-    `;
-const maxWords = 150; // Maximum number of words to display
-const textContent = docDiv.querySelector("#text-content");
-if(textContent.textContent.length > maxWords){
-    textContent.textContent = textContent.textContent.substring(0, maxWords) + '...';
-}
-    // Add event listener to "Read Text" button
-    const readButton = docDiv.querySelector(".read-button");
-    readButton.addEventListener("click", () => {
-      // Redirect to reading.html with query parameters, including questions
-      window.location.href = `../reading/reading.html?no=${data.no}`;
-    });
-
-    container.appendChild(docDiv);
-  });
+// Function to fetch word data from Firestore
+async function fetchWords() {
+  const wordCollection = collection(db, "words");
+  const wordSnapshot = await getDocs(wordCollection);
+  const words = wordSnapshot.docs.map(doc => doc.data().name);
+  return words;
 }
 
-// Call fetchData when the page loads
-window.onload = fetchData;
+async function fetchTexts() {
+  const textCollection = collection(db, "texts");
+  const textSnapshot = await getDocs(textCollection);
+  const texts = textSnapshot.docs.map(doc => doc.data());
+  return texts;
+}
+
+window.onload = async () => {
+  try {
+    const words = await fetchWords();
+    const texts = await fetchTexts();
+
+    const statTextNumber = document.querySelector(".stat-text-number");
+    const statWordNumber = document.querySelector(".stat-word-number");
+
+    if (statTextNumber) {
+      statTextNumber.textContent = texts.length; // Use actual data
+    }
+
+    if (statWordNumber) {
+      statWordNumber.textContent = words.length; // Use actual data
+    }
+
+    const selectedTextContainer = document.querySelector(".selected-texts-container"); // Parent div for cards
+
+    texts.forEach(text => {
+      const card = document.createElement("div");
+      card.classList.add("selected-text"); // Add your CSS class for styling
+
+      card.innerHTML = `
+        <h5 class="card-title">${text.title}</h5>
+        <p class="text-level">Level: ${text.level}</p>
+        <img src="default.jpg" alt="Text Image" class="selected-text-image"> <!-- Change as needed -->
+      `;
+      
+      if (selectedTextContainer.children.length < 6) {
+        selectedTextContainer.appendChild(card);
+      }
+      
+    })
+
+  } catch (error) {
+    console.error("Error fetching Firestore data:", error);
+  }
+};
+
+

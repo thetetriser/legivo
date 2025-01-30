@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texts</title>
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="../global.css">
+</head>
+<body>
+  <section id="navigation">
+    <div id="nav-content">
+        <img class="logo nav" src="https://static.vecteezy.com/system/resources/thumbnails/022/664/807/small_2x/cat-face-silhouettes-cat-face-svg-black-and-white-cat-vector.jpg" alt="Logo">
+        <div id="menu">
+            <a  class="nav" href="../index.html">Home</a>
+            <a  class="nav" href="search/search.html">Texts</a>
+            <a  class="nav" href="contact.html">Contact</a>
+        </div>
+    </section>
+
+    <section id="search">
+      <div id="search-content">
+        <div id="search-bar">
+          <div id"search-bar-content">
+            <h5>Filter Texts</h5>
+            <div id="filter-sort">
+              <p>Sort by:</p>
+              <select class="dropdown-menu" id="sort-select">
+                <option value="title">Title</option>
+                <option value="level">Level</option>
+              </select>
+            </div>
+            <div id="filter-topic">
+              <p>Topic:</p>
+              <select class="dropdown-menu" id="topic-select">
+                <option value="all">All</option>
+                <option value="tech">Tech</option>
+                <option value="history">History</option>
+                <option value="science">Science</option>
+                <option value="literature">Literature</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+            <div id="filter-level">
+              <p>Level:</p>
+              <label><input type="checkbox" name="level" value="easy"> Easy</label>
+              <label><input type="checkbox" name="level" value="medium"> Medium</label>
+              <label><input type="checkbox" name="level" value="hard"> Hard</label>
+            </div>
+            
+            
+          </div>
+          <button id="filter-button" class="secondary-button" type="button">Filter</button>
+        </div>
+        <div id="search-results">
+          <div id="search-results-content">
+            <p>Results will be here</p>
+        </div>
+        <div id="pagination"></div>
+
+      </div>
+
+
+    </section>
+
+
+
+
+
+<div id="footer">
+        <div id="footer-content">
+            <div id="footer-logo">
+                <img class="logo"src="https://static.vecteezy.com/system/resources/thumbnails/022/664/807/small_2x/cat-face-silhouettes-cat-face-svg-black-and-white-cat-vector.jpg" alt="Logo">
+            </div>
+            <div id="footer-menu">
+                <a class="footer" href="index.html">Home</a>
+                <a class="footer" href="texts.html">Texts</a>
+                <a class="footer" href="contact.html">Contact</a>
+            </div>
+    </div>
+  <script type="module" src="search.js"></script>
+</body>
+</html>

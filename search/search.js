@@ -35,7 +35,7 @@ function displayTexts(texts, page = 1) {
   }
 
   // Pagination logic
-  const itemsPerPage = 9;
+  const itemsPerPage = 15;
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedTexts = texts.slice(startIndex, endIndex);

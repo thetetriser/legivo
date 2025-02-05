@@ -9,7 +9,6 @@ const firebaseConfig = {
   storageBucket: "legivo-1.appspot.com",
   messagingSenderId: "733952528595",
   appId: "1:733952528595:web:99bd0efdd4874d3ea50426",
-  appId: "1:733952528595:web:99bd0efdd4874d3ea50426",
 };
 
 // Initialize Firebase
@@ -35,7 +34,6 @@ async function fetchWordData(words) {
       console.error(`No data found for the word: ${word}`);
     }
   }
-  
   
   return wordDataMap;
 }

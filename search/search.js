@@ -23,7 +23,6 @@ async function fetchTexts() {
   return textSnapshot.docs.map(doc => doc.data()); // Return an array of text objects
 }
 
-// Function to display texts
 // Function to display texts with pagination
 function displayTexts(texts, page = 1) {
   const resultsContainer = document.getElementById("search-results-content");
@@ -35,7 +34,7 @@ function displayTexts(texts, page = 1) {
   }
 
   // Pagination logic
-  const itemsPerPage = 15;
+  const itemsPerPage = 9;
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedTexts = texts.slice(startIndex, endIndex);
@@ -44,13 +43,15 @@ function displayTexts(texts, page = 1) {
   paginatedTexts.forEach(text => {
     const card = document.createElement("div");
     card.classList.add("text-card"); // Add a CSS class for styling
-
     card.innerHTML = `
       <h5 class="card-title">${text.title}</h5>
       <p class="text-level">${text.level || "Unknown"}</p>
-      
-      
     `;
+
+    // Add click event listener to navigate to reading page with "no"
+    card.addEventListener("click", () => {
+      window.location.href = `../reading/reading.html?no=${text.no}`;
+    });
 
     resultsContainer.appendChild(card);
   });

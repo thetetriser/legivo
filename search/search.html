@@ -21,37 +21,39 @@
     <section id="search">
       <div id="search-content">
         <div id="search-bar">
-          <div id"search-bar-content">
-            <h5>Filter Texts</h5>
-            <div id="filter-sort">
-              <p>Sort by:</p>
-              <select class="dropdown-menu" id="sort-select">
-                <option value="title">Title</option>
-                <option value="level">Level</option>
-              </select>
-            </div>
-            <div id="filter-topic">
-              <p>Topic:</p>
-              <select class="dropdown-menu" id="topic-select">
-                <option value="all">All</option>
-                <option value="tech">Tech</option>
-                <option value="history">History</option>
-                <option value="science">Science</option>
-                <option value="literature">Literature</option>
-                <option value="others">Others</option>
-              </select>
-            </div>
-            <div id="filter-level">
-              <p>Level:</p>
-              <label><input type="checkbox" name="level" value="easy"> Easy</label>
-              <label><input type="checkbox" name="level" value="medium"> Medium</label>
-              <label><input type="checkbox" name="level" value="hard"> Hard</label>
-            </div>
-            
-            
+          <h5>Filter Texts</h5>
+        
+          <div class="filter-sort">
+            <p>Sort by:</p>
+            <select class="dropdown-menu" id="sort-select">
+              <option value="title">Title</option>
+              <option value="level">Level</option>
+            </select>
           </div>
-          <button id="filter-button" class="secondary-button" type="button">Filter</button>
+        
+          <div class="filter-topic">
+            <p>Topic:</p>
+            <select class="dropdown-menu" id="topic-select">
+              <option value="all">All</option>
+              <option value="tech">Tech</option>
+              <option value="history">History</option>
+              <option value="science">Science</option>
+              <option value="literature">Literature</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+        
+          <div class="filter-level">
+            <p>Level:</p>
+            <label><input type="checkbox" name="level" value="easy"> Easy</label>
+            <label><input type="checkbox" name="level" value="medium"> Medium</label>
+            <label><input type="checkbox" name="level" value="hard"> Hard</label>
+          </div>
+        
+          <button id="filter-button" type="button">Filter</button>
+          <button id="clear-filters" type="button">Clear Filters</button>
         </div>
+        
         <div id="search-results">
           <div id="search-results-content">
             <p>Results will be here</p>
